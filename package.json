@@ -1,0 +1,32 @@
+{
+  "name": "api-reviewsandratings",
+  "version": "1.0.0",
+  "description": "",
+  "main": "R&R_schema.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kingly-Kulfi/API-ReviewsAndRatings.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kingly-Kulfi/API-ReviewsAndRatings/issues"
+  },
+  "homepage": "https://github.com/Kingly-Kulfi/API-ReviewsAndRatings#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "newrelic": "^7.5.1",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "frisby": "^2.1.3",
+    "jest": "^27.0.5",
+    "mocha": "^9.0.1",
+    "nodemon": "^2.0.7"
+  }
+}
