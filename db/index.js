@@ -1,5 +1,7 @@
 const { Pool } = require('pg')
 
+
+//need to hide user/password from here (gitignore)
 const pool = new Pool({
   host: 'localhost',
   user: 'sergioh',

@@ -1,0 +1,1 @@
+ssh -i "/Users/sergioh/Documents/Hackreactor/SEI SFO135/API-ReviewsAndRatings/key_pairs/SDC-DB.pem" ubuntu@ec2-18-217-109-53.us-east-2.compute.amazonaws.com

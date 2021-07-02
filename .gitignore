@@ -21,3 +21,5 @@ node_modules
 
 #ignore data csv files
 data
+
+key_pairs

@@ -154,3 +154,18 @@ INSERT INTO characteristic_reviews(id, characteristic_id, review_id, value) SELE
 ALTER TABLE reviews ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 ALTER TABLE reviews_photos ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
 ALTER TABLE characteristic_reviews ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY;
+
+CREATE INDEX reviews_product_id_asc ON reviews(product_id ASC);
+CREATE INDEX mul_col_idx_reviews ON reviews(product_id ASC, recommend ASC);
+CREATE INDEX reviews_photos_review_id_asc ON reviews_photos(review_id ASC);
+CREATE INDEX characteristics_product_id_asc ON characteristics(product_id ASC);
+CREATE INDEX characteristic_reviews_characteristic_id_asc ON characteristic_reviews(characteristic_id ASC);
+
+SELECT pg_catalog.setval(pg_get_serial_sequence('reviews', 'id'), MAX(id)) FROM reviews;
+SELECT pg_catalog.setval(pg_get_serial_sequence('reviews_photos', 'id'), MAX(id)) FROM reviews_photos;
+SELECT pg_catalog.setval(pg_get_serial_sequence('characteristic_reviews', 'id'), MAX(id)) FROM characteristic_reviews;
+
+
+
+
+
