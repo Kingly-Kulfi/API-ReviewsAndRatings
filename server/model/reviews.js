@@ -11,16 +11,6 @@ let getReviews = function(callback, paramObject) {
   let product_id = paramObject.product_id;
   let queryReview;
 
-  //console.log('getReviews model data:', page, count, sort, product_id);
-
-  // SELECT * FROM reviews INNER JOIN reviews_photos ON (reviews.id = reviews_photos.id) WHERE reviews.product_id = 1;
-
-  // SELECT reviews.id, reviews.product_id, reviews_photos.review_id, reviews_photos.url FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2;
-
-  // SELECT reviews.*, reviews_photos.id, reviews_photos.url FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2 ORDER BY helpfulness DESC;
-
-  // SELECT reviews.*, STRING_AGG(to_char(reviews_photos.id, 'FM999999999999999999'), ',') photo_ids, STRING_AGG(reviews_photos.url, ', ') photo_url FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = ${product_id} GROUP BY reviews.id;
-
   if(sort === 'relevant') {
     //this helped the speed of querie search
     //created a traditional index for reviews - product.id ASC
@@ -46,20 +36,6 @@ let getReviews = function(callback, paramObject) {
     });
   }
 }
-
-/*
-SELECT id, STRING_AGG(reviews_photos.url, ',') photos FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2 ORDER BY helpfulness DESC;
-
-SELECT reviews.*, STRING_AGG(reviews_photos.url, ',') photos FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2 GROUP BY reviews.id;
-
-SELECT reviews.*, STRING_AGG(reviews_photos.id, ',') photos FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2 GROUP BY reviews.id;
-
-// good query
-SELECT reviews.*, STRING_AGG(to_char(reviews_photos.id, '9'), ',') photo_ids, STRING_AGG(reviews_photos.url, ', ') photo_url  FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 2 GROUP BY reviews.id;
-
-// This works better
-SELECT reviews.*, STRING_AGG(to_char(reviews_photos.id, 'FM999999999999999999'), ',') photo_ids, STRING_AGG(reviews_photos.url, ', ') photo_url  FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = {product_id} GROUP BY reviews.id;
-*/
 
 let getReviewMetadataRatings = function(callback, paramObject) {
   let product_id = paramObject.product_id;
@@ -120,7 +96,6 @@ let addReview = function(callback, reviewObject) {
   let queryReview = `INSERT INTO reviews (product_id, rating, summary, body, recommend, reviewer_name, reviewer_email) VALUES (${product_id}, ${reviewObject.rating}, '${reviewObject.summary}', '${reviewObject.body}', ${reviewObject.recommend}, '${reviewObject.name}', '${reviewObject.email}') RETURNING *`;
 
   //included a RETURNING statement in query to get the  reviews id when inserting a value
-
   db.query(queryReview, (err, data) => {
     if(err) {
       callback(err);

@@ -40,11 +40,3 @@ it ('fetch POST should return a status of 201 Created', function () {
   })
     .expect('status', 201);
 });
-
-
-// SELECT reviews.*, STRING_AGG(to_char(reviews_photos.id, 'FM999999999999999999'), ',') photo_ids, STRING_AGG(reviews_photos.url, ',') photo_url FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 465510 GROUP BY reviews.id
-
-// SELECT reviews.*, STRING_AGG(to_char(reviews_photos.id, 'FM999999999999999999'), ',') photo_ids, STRING_AGG(reviews_photos.url, ',') photo_url FROM reviews LEFT JOIN reviews_photos ON (reviews.id = reviews_photos.review_id) WHERE reviews.product_id = 465510 GROUP BY reviews.id ORDER BY helpfulness DESC;
-
-
-// (SELECT reviews.recommend, COUNT(reviews.recommend) recommend_count FROM reviews WHERE recommend = false AND product_id = 465510 GROUP BY reviews.recommend) UNION ALL ( SELECT reviews.recommend, COUNT(reviews.recommend) recommend_count FROM reviews WHERE recommend = true AND product_id = 465510 GROUP BY reviews.recommend);

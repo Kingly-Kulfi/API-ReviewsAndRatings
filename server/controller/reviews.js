@@ -133,44 +133,6 @@ module.exports = {
         }
       },
     req.query);
-
-    // models.getReviewMetadataRecommended(
-    //   (err, data) => {
-    //     if (err) {
-    //       res.status(500).send(err)
-    //     } else {
-    //       for (i = 0; i < data.length; i++) {
-    //         let recommend = data[i].recommend;
-    //         let recommend_count = data[i].recommend_count;
-    //         metaObject.recommended[recommend] = recommend_count;
-    //       }
-    //     }
-    //   },
-    // req.query);
-
-    // models.getReviewMetadataCharacteristics(
-    //   (err, data) => {
-    //     if (err) {
-    //       res.status(500).send(err)
-    //     } else {
-    //       for (i = 0; i < data.length; i++) {
-    //         let characteristic_description = data[i].name;
-    //         let id = (data[i].characteristic_id).split(',')[0];
-
-    //         let characteristic_valuesNum = (data[i].characteristic_values).split(',').map((j) => Number(j));
-    //         let numberOfValues = characteristic_valuesNum.length;
-    //         let sum = characteristic_valuesNum.reduce(function(a, b){
-    //           return a + b;
-    //         }, 0);
-    //         let value = sum/numberOfValues;
-
-    //         metaObject.charactristics[characteristic_description] = {'id': id, 'value': value};
-    //       }
-    //     }
-    //   },
-    // req.query);
-
-    // console.log('controller: ', metaObject)
   },
 
   post: function (req, res) {
@@ -214,5 +176,4 @@ module.exports = {
           }
       }, req.body);
   }
-
 }

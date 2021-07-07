@@ -52,43 +52,6 @@ CREATE TABLE characteristic_reviews (
 
 -- \timing
 
--- CREATE TABLE products (
---   id INT PRIMARY KEY,
--- );
-
--- CREATE TABLE characteristics (
---   id INT GENERATED AS IDENTITY PRIMARY KEY,
---   name VARCHAR(15),
--- );
-
--- CREATE TABLE product_characteristics (
---   id INT GENERATED AS IDENTITY PRIMARY KEY,
---   product_id INT NOT NULL,
---   characteristics_id INT NOT NULL,
---   FOREIGN KEY(product_id)
---     REFERENCES products(id),
---   FOREIGN KEY(characteristics_id)
---     REFERENCES characteristics(id)
--- );
-
--- DATE in milliseconds
--- CREATE TABLE dateoriginal (
---   id INT PRIMARY KEY,
---   date BIGINT
--- );
-
--- DATE in seconds
--- CREATE TABLE date (
---   id INT PRIMARY KEY,
---   date BIGINT
--- );
-
--- DATE formated to UTC
--- CREATE TABLE dateupdate (
---   id INT PRIMARY KEY,
---   date TIMESTAMP
--- );
-
 CREATE TABLE reviewstemp (
   id INT PRIMARY KEY,
   product_id INT,

@@ -23,3 +23,8 @@ node_modules
 data
 
 key_pairs
+*.txt
+*.log
+*.pem
+
+reviews.sql
